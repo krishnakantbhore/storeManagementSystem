@@ -1,7 +1,7 @@
 import React from "react";
 
 import Dashboard from "./WebPage/Dashboard";
-import Outword,{action as OutwordAction} from "./WebPage/Outword";
+import Outword, { action as OutwordAction, loader as OutwordLoader } from "./WebPage/Outword";
 import Inword,{action as InwordAction} from "./WebPage/Inword.jsx";
 import Inword_Report,{action as InwordReportAction} from "./WebPage/Inword_Report.jsx";
 import Outword_Report,{action as OutwordReportAction} from "./WebPage/Outword_Report.jsx";
@@ -34,7 +34,8 @@ export default function App() {
                 {
                     path: "outword",
                     element: <Outword/>,
-                    action:OutwordAction
+                    action: OutwordAction,
+                    loader: OutwordLoader
                 },
                 {
                     path: "item_list",

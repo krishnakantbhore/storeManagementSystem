@@ -1,13 +1,16 @@
 import React, {useEffect, useRef} from "react";
-import {Form, useActionData} from "react-router-dom";
-import {saveOutwordEntry} from "../_lib/lib";
+import {Form, useActionData, useLoaderData} from "react-router-dom";
+import {getAllEmployeeName, saveOutwordEntry} from "../_lib/lib";
 import toast from "react-hot-toast";
 
 
 export default function Outword() {
 const actionData = useActionData();
 const formRef = useRef();
-// console.log(actionData?.data);
+    // console.log(actionData?.data);
+    
+    const loaderData = useLoaderData()
+    console.log(loaderData)
 
 
 useEffect(() => {
@@ -67,8 +70,14 @@ return (
                             </div>
                             <div className="col ">
                                 <label htmlFor="name1">Techer Name</label>
-                                <input type="text" id="name1" name={"teacherName"} className="form-control"
-                                        required={true}/>
+                                {/* <input type="text" id="name1" name={"teacherName"} className="form-control"
+                                        required={true}/> */}
+                                <select className="form-control" name={"teacherName"}  >
+                                <option>Select a Teacher Name</option>
+                                    {loaderData.map((name) => <option value={name}> {name}</option>)}
+                                    
+                                </select>
+
                             </div>
                             <div className="col ">
                                 <label htmlFor="quantity">Quantity</label>
@@ -97,4 +106,9 @@ const res = saveOutwordEntry(data);
 console.log(res)
 return res;
 
+}
+
+export async function loader() { 
+    const data = await getAllEmployeeName();
+    return data.data
 }

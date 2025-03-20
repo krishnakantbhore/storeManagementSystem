@@ -28,7 +28,7 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                  <form className="form-inline mr-auto">
+                  {/* <form className="form-inline mr-auto">
                     <div className="search-element">
                       <input
                         className="form-control"
@@ -41,7 +41,7 @@ export default function Navbar() {
                         <i className="fas fa-search"></i>
                       </button>
                     </div>
-                  </form>
+                  </form> */}
                 </li>
                   <li className="text-center ml-5 mt-2  ">
                 <legend style={{color:"  rgb(161, 165, 197)"}} className="text-center text-shadow   rounded ">

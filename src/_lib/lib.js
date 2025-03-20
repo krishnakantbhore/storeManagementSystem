@@ -67,3 +67,12 @@ export async function getAllEmployeeData(){
     return res;
 }
 
+export async function getAllEmployeeName() {
+    const res = await axios.get(`http://localhost:8080/findTeacherName`);
+    return res;
+}
+
+export async function getOutwordDataByDepartment(department) {
+    const res = await axios.get(`http://localhost:8080/getOutwordDataByDeparment?departmentName=${department}`);
+    return res;
+}
